@@ -1,0 +1,15 @@
+{
+  "name": "slack-ai-workspace-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "mcp-server",
+    "web-app"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace=mcp-server",
+    "dev:web": "npm run dev --workspace=web-app",
+    "dev": "npm run dev --workspace=web-app",
+    "build": "npm run build --workspaces"
+  }
+}
