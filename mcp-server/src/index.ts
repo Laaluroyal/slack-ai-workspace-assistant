@@ -9,7 +9,11 @@ import {
 import { WebClient } from "@slack/web-api";
 import { z } from "zod";
 
-const SLACK_TOKEN = process.env.SLACK_BOT_TOKEN || "xoxb-11408146488758-11403905906803-7CZZW8Pc9v5Ydl5mG6BvjrbJ";
+const SLACK_TOKEN = process.env.SLACK_BOT_TOKEN;
+if (!SLACK_TOKEN) {
+  console.error("Error: SLACK_BOT_TOKEN environment variable is not set");
+  process.exit(1);
+}
 const web = new WebClient(SLACK_TOKEN);
 
 const server = new Server(
